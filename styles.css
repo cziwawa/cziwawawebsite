@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.ranks {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.rank-icon {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.rank-icon img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.rank-icon p {
+    margin-top: 10px;
+}
