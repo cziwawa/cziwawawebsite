@@ -3,29 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weryfikacja IP</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="styles.css"> <!-- Dodaj link do pliku CSS -->
+    <title>Rozwijane Elementy z Samochodami</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 10px;
+        }
+        .accordion {
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            position: relative;
+        }
+        .accordion:hover {
+            background-color: #e2e2e2;
+        }
+        .accordion:after {
+            content: '▼';
+            position: absolute;
+            right: 10px;
+            font-size: 18px;
+        }
+        .panel {
+            display: none;
+            overflow: hidden;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+        .car {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .car img {
+            max-width: 150px;
+            margin-right: 20px;
+        }
+        .car-info {
+            text-align: left;
+        }
+        .car-info h3 {
+            margin: 0;
+        }
+        .car-info p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Status</h1>
-    <p id="status"></p>
 
-    <div class="ranks">
-        <a href="vip.html" class="rank-icon vip">
-            <img src="vip_icon.png" alt="VIP">
-            <p>Ranga VIP - 10 zł</p>
-        </a>
-        <a href="mvip.html" class="rank-icon mvip">
-            <img src="mvip_icon.png" alt="MVIP">
-            <p>Ranga MVIP - 10 zł</p>
-        </a>
-        <a href="plank.html" class="rank-icon plank">
-            <img src="plank_icon.png" alt="Plank">
-            <p>Ranga Plank - 10 zł</p>
-        </a>
+<div class="container">
+    <div class="accordion">Samochód 1</div>
+    <div class="panel">
+        <div class="car">
+            <img src="https://via.placeholder.com/150" alt="Samochód 1">
+            <div class="car-info">
+                <h3>Nazwa Samochodu 1</h3>
+                <p>Cena: 100,000 PLN</p>
+            </div>
+        </div>
     </div>
 
-    <script src="script.js"></script> <!-- Dołącz zewnętrzny plik JavaScript -->
+    <div class="accordion">Samochód 2</div>
+    <div class="panel">
+        <div class="car">
+            <img src="https://via.placeholder.com/150" alt="Samochód 2">
+            <div class="car-info">
+                <h3>Nazwa Samochodu 2</h3>
+                <p>Cena: 120,000 PLN</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">Samochód 3</div>
+    <div class="panel">
+        <div class="car">
+            <img src="https://via.placeholder.com/150" alt="Samochód 3">
+            <div class="car-info">
+                <h3>Nazwa Samochodu 3</h3>
+                <p>Cena: 150,000 PLN</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">Samochód 4</div>
+    <div class="panel">
+        <div class="car">
+            <img src="https://via.placeholder.com/150" alt="Samochód 4">
+            <div class="car-info">
+                <h3>Nazwa Samochodu 4</h3>
+                <p>Cena: 200,000 PLN</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const accordions = document.querySelectorAll('.accordion');
+
+    accordions.forEach(accordion => {
+        accordion.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
